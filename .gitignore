@@ -1,0 +1,19 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Spring Boot
+backend/target/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log

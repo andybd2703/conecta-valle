@@ -1,0 +1,58 @@
+<main class="home">
+
+  <header class="home__header">
+    <h1>Conecta Valle</h1>
+
+    <p>
+      Encuentra, publica y conecta con personas
+      del Valle del Cauca.
+    </p>
+  </header>
+
+  <section class="categories">
+
+    <h2>Explora nuestras categorías</h2>
+
+    @if (loading()) {
+
+    <p>Cargando categorías...</p>
+
+    } @else if (error()) {
+
+    <div class="categories__error">
+
+      <p>{{ error() }}</p>
+
+      <button type="button" (click)="loadCategories()">
+        Reintentar
+      </button>
+
+    </div>
+
+    } @else {
+
+    <div class="categories__grid">
+
+      @for (category of categories(); track category.id) {
+
+      <article class="category-card">
+
+        <h3>{{ category.name }}</h3>
+
+        <p>{{ category.description }}</p>
+
+      </article>
+
+      } @empty {
+
+      <p>No hay categorías disponibles.</p>
+
+      }
+
+    </div>
+
+    }
+
+  </section>
+
+</main>
